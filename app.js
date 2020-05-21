@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const morgan = require("morgan");
 const expressValidator = require('express-validator');
 const fs = require('fs');
+const cors = require('cors');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -38,6 +39,7 @@ app.get('/', (req, res) => {
 app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(cors());
 app.use(expressValidator());
 app.use('/', postRoutes);
 app.use('/', authRoutes);
